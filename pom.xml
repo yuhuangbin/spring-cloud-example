@@ -18,6 +18,7 @@
 		<module>spring-cloud-common-api</module>
 		<module>spring-cloud-eureka</module>
 		<module>spring-cloud-provider</module>
+		<module>spring-cloud-customer</module>
 	</modules>
 
 	<properties>
