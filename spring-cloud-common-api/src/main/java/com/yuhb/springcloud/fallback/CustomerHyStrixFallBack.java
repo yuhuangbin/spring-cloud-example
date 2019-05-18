@@ -1,5 +1,6 @@
 package com.yuhb.springcloud.fallback;
 
+import com.yuhb.springcloud.domain.SysUser;
 import com.yuhb.springcloud.interfaces.EchoService;
 import feign.hystrix.FallbackFactory;
 import org.slf4j.Logger;
@@ -21,9 +22,10 @@ public class CustomerHyStrixFallBack implements FallbackFactory<EchoService> {
         Exception exception = (Exception) throwable;
         return new EchoService() {
             @Override
-            public String echo(String name) {
+            public SysUser echo(Integer id) {
                 LOGGER.error("excute EchoService.echo() error ", exception);
-                return String.format("spring-cloud-customer -> spring-cloud-provider fallback , request params : %s", name);
+                String.format("spring-cloud-customer -> spring-cloud-provider fallback , request params : %d", id);
+                return null;
             }
 
         };

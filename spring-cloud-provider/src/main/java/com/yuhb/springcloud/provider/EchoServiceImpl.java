@@ -1,13 +1,19 @@
 package com.yuhb.springcloud.provider;
 
+import com.yuhb.springcloud.domain.SysUser;
 import com.yuhb.springcloud.interfaces.EchoService;
+import com.yuhb.springcloud.mapper.SysUserMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class EchoServiceImpl implements EchoService {
+
+    @Autowired
+    private SysUserMapper sysUserMapper;
+
     @Override
-    public String echo(String name) {
-//        int a = 1/0; // 制造异常测试
-        return "provider result : " + name;
+    public SysUser echo(Integer id) {
+        return sysUserMapper.selectByPrimaryKey(id);
     }
 }

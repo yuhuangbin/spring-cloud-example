@@ -1,5 +1,6 @@
 package com.yuhb.springcloud.controller;
 
+import com.yuhb.springcloud.domain.SysUser;
 import com.yuhb.springcloud.interfaces.EchoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +12,7 @@ public class EchoController {
     private EchoService echoService;
 
     @RequestMapping(value = "/echo")
-    public String echo(String name) {
-        return echoService.echo(name);
+    public SysUser echo(Integer id) {
+        return echoService.echo(id);
     }
 }

@@ -12,7 +12,7 @@
     </Console>
 
     <RollingRandomAccessFile name="RollingRandomAccessFile" fileName="${LOG_HOME}/provider.log"
-                 filePattern="${LOG_HOME}/$${date:yyyy-MM}/manager-%d{MM-dd-yyyy}-%i.log.gz">
+                 filePattern="${LOG_HOME}/$${date:yyyy-MM}/provider-%d{MM-dd-yyyy}-%i.log.gz">
       <PatternLayout>
         <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
       </PatternLayout>
