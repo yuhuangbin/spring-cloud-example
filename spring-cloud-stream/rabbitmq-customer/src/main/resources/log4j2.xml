@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info">
+  <Properties>
+        <!-- 如下设置为日志默认输出路径,当前用户主目录,如果需要设置,可以在JVM设置类似:
+            -DLOG_HOME=/Users/kyle/Develop/car-loan/carloan/web/target/logs
+        -->
+        <Property name="LOG_HOME">${sys:user.home}/logs</Property>
+  </Properties>
+  <Appenders>   
+    <Console name="console" target="SYSTEM_OUT">
+     	<PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"/>
+    </Console>
+
+    <RollingRandomAccessFile name="RollingRandomAccessFile" fileName="${LOG_HOME}/rabbitmq-customer.log"
+                 filePattern="${LOG_HOME}/$${date:yyyy-MM}/rabbitmq-customer-%d{MM-dd-yyyy}-%i.log.gz">
+      <PatternLayout>
+        <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+      </PatternLayout>
+      <Policies>
+      	<OnStartupTriggeringPolicy />
+        <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+      </Policies>
+    </RollingRandomAccessFile>
+  </Appenders>
+
+  <Loggers>
+      <Root level="info">
+          <AppenderRef ref="RollingRandomAccessFile" />
+          <!--生产环境控制台不打可注释-->
+          <AppenderRef ref="console"/>
+      </Root>
+  </Loggers>
+</Configuration>

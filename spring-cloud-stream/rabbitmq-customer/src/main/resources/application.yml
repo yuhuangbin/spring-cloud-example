@@ -1,0 +1,22 @@
+spring:
+  profiles: dev
+  cloud:
+    stream:
+      default-binder: default_binder
+      binders:
+        default_binder:
+          type: rabbit
+          environment:
+            spring:
+             rabbitmq:
+              host: 192.168.123.46
+              port: 5672
+              username: admin
+              password: admin
+              virtual-host: /
+
+      bindings:
+        cus-input1:
+          destination: test-exchange
+
+

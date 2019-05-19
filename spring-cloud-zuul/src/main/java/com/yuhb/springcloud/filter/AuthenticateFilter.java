@@ -3,11 +3,7 @@ package com.yuhb.springcloud.filter;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
-import com.sun.xml.internal.ws.client.ResponseContext;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.http.HttpStatus;
-import org.springframework.stereotype.Component;
-
 import javax.servlet.http.HttpServletRequest;
 
 /**
