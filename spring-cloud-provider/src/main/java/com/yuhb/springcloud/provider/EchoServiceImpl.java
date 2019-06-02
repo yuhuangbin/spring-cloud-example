@@ -4,6 +4,7 @@ import com.yuhb.springcloud.domain.SysUser;
 import com.yuhb.springcloud.interfaces.EchoService;
 import com.yuhb.springcloud.mapper.SysUserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -15,5 +16,10 @@ public class EchoServiceImpl implements EchoService {
     @Override
     public SysUser echo(Integer id) {
         return sysUserMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public void save(@RequestBody SysUser sysUser) {
+       sysUserMapper.insert(sysUser);
     }
 }

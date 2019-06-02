@@ -1,5 +1,6 @@
 package com.yuhb.springcloud.fallback;
 
+import com.alibaba.fastjson.JSON;
 import com.yuhb.springcloud.domain.SysUser;
 import com.yuhb.springcloud.interfaces.EchoService;
 import feign.hystrix.FallbackFactory;
@@ -28,6 +29,10 @@ public class CustomerHyStrixFallBack implements FallbackFactory<EchoService> {
                 return null;
             }
 
+            @Override
+            public void save(SysUser sysUser) {
+                String.format("spring-cloud-customer -> spring-cloud-provider fallback , request params : %d", JSON.toJSONString(sysUser));
+            }
         };
     }
 

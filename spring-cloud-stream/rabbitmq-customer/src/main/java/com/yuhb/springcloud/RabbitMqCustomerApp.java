@@ -9,7 +9,7 @@ import org.springframework.cloud.stream.annotation.StreamListener;
 /**
  * Description:
  * author: yu.hb
- * Date: 2019-05-19
+ * Date: 2019-05-
  */
 @SpringBootApplication
 @EnableBinding(value = CustomerSink.class)
